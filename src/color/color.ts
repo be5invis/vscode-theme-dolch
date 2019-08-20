@@ -87,10 +87,13 @@ export class Color {
 	private chan(n: number) {
 		let x = Math.min(0xff, Math.max(0, Math.round(n))).toString(16);
 		while (x.length < 2) x = "0" + x;
-		return x;
+		return x.toUpperCase();
+	}
+	public hexRaw() {
+		return `${this.chan(this.r)}${this.chan(this.g)}${this.chan(this.b)}`;
 	}
 	public hex() {
-		return `#${this.chan(this.r)}${this.chan(this.g)}${this.chan(this.b)}`;
+		return `#${this.hexRaw()}`;
 	}
 	public hexaa() {
 		return `${this.hex()}${this.chan(this.opacity)}`;
@@ -99,7 +102,8 @@ export class Color {
 		const red = 0 | this.r;
 		const green = 0 | this.g;
 		const blue = 0 | this.b;
-		return `\x1b[48;2;${red};${green};${blue}m   \x1b[0m`;
+		const fg = this.L < 50 ? `97` : `30`;
+		return `\x1b[${fg};48;2;${red};${green};${blue}m ${this.hexRaw()} \x1b[0m`;
 	}
 
 	// Grades
