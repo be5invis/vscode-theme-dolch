@@ -5,39 +5,72 @@ export interface PaletteProps {
 	shades: Grade;
 	// Accent
 	accent?: Grade;
-	// Munsell
-	munsell?: Grade;
+	// Color ring
+	ring?: Grade;
+	// We define 12 "ring" colors uniformly lies on LCH cylinder
 	red?: Grade;
+	orange?: Grade;
 	yellow?: Grade;
+	chartreuse?: Grade;
 	green?: Grade;
+	spring?: Grade;
 	cyan?: Grade;
+	azure?: Grade;
 	blue?: Grade;
-	purple?: Grade;
+	violet?: Grade;
+	magenta?: Grade;
+	rose?: Grade;
 }
 
 const GRADES = 10;
 
-type PaletteKeys = "shades" | "accent" | "red" | "yellow" | "green" | "cyan" | "blue" | "purple";
+type PaletteKeys =
+	| "shades"
+	| "accent"
+	| "red"
+	| "orange"
+	| "yellow"
+	| "chartreuse"
+	| "green"
+	| "spring"
+	| "cyan"
+	| "azure"
+	| "blue"
+	| "violet"
+	| "magenta"
+	| "rose";
 const PaletteKeys: PaletteKeys[] = [
 	"shades",
 	"accent",
 	"red",
+	"orange",
 	"yellow",
+	"chartreuse",
 	"green",
+	"spring",
 	"cyan",
+	"azure",
 	"blue",
-	"purple"
+	"violet",
+	"magenta",
+	"rose"
 ];
 
 export class Palette {
 	public shades: Color[];
 	public accent: Color[];
 	public red: Color[];
+	public orange: Color[];
 	public yellow: Color[];
+	public chartreuse: Color[];
 	public green: Color[];
+	public spring: Color[];
 	public cyan: Color[];
+	public azure: Color[];
 	public blue: Color[];
-	public purple: Color[];
+	public violet: Color[];
+	public magenta: Color[];
+	public rose: Color[];
 
 	private isDark: boolean;
 
@@ -45,14 +78,19 @@ export class Palette {
 		this.shades = getColorGrades(GRADES, props.shades);
 		this.accent = getColorGrades(GRADES, { ...props.shades, ...props.accent });
 
-		// "Munsell" common colors
-		const mnCommon = { ...props.shades, ...props.accent, ...props.munsell };
-		this.red = getColorGrades(GRADES, { ...mnCommon, ...props.red });
-		this.yellow = getColorGrades(GRADES, { ...mnCommon, ...props.yellow });
-		this.green = getColorGrades(GRADES, { ...mnCommon, ...props.green });
-		this.cyan = getColorGrades(GRADES, { ...mnCommon, ...props.cyan });
-		this.blue = getColorGrades(GRADES, { ...mnCommon, ...props.blue });
-		this.purple = getColorGrades(GRADES, { ...mnCommon, ...props.purple });
+		const ringCommon = { ...props.shades, ...props.accent, ...props.ring };
+		this.red = getColorGrades(GRADES, { ...ringCommon, ...props.red });
+		this.orange = getColorGrades(GRADES, { ...ringCommon, ...props.orange });
+		this.yellow = getColorGrades(GRADES, { ...ringCommon, ...props.yellow });
+		this.chartreuse = getColorGrades(GRADES, { ...ringCommon, ...props.chartreuse });
+		this.green = getColorGrades(GRADES, { ...ringCommon, ...props.green });
+		this.spring = getColorGrades(GRADES, { ...ringCommon, ...props.spring });
+		this.cyan = getColorGrades(GRADES, { ...ringCommon, ...props.cyan });
+		this.azure = getColorGrades(GRADES, { ...ringCommon, ...props.azure });
+		this.blue = getColorGrades(GRADES, { ...ringCommon, ...props.blue });
+		this.violet = getColorGrades(GRADES, { ...ringCommon, ...props.violet });
+		this.magenta = getColorGrades(GRADES, { ...ringCommon, ...props.magenta });
+		this.rose = getColorGrades(GRADES, { ...ringCommon, ...props.rose });
 
 		this.isDark = this.shades[0].L < this.shades[GRADES].L;
 	}
@@ -74,10 +112,16 @@ export class Palette {
 export function StandardMunsell(angle: number) {
 	return {
 		red: { hue: angle + 0 },
+		orange: { hue: angle + 30 },
 		yellow: { hue: angle + 60 },
+		chartreuse: { hue: angle + 90 },
 		green: { hue: angle + 120 },
+		spring: { hue: angle + 150 },
 		cyan: { hue: angle + 180 },
+		azure: { hue: angle + 210 },
 		blue: { hue: angle + 240 },
-		purple: { hue: angle + 300 }
+		violet: { hue: angle + 270 },
+		magenta: { hue: angle + 300 },
+		rose: { hue: angle + 330 }
 	};
 }
