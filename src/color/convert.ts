@@ -1,15 +1,19 @@
 export type ColorChannels = [number, number, number];
 
 const DELTA = 6 / 29;
+// D65 normalization point
+const XN = 0.95047;
+const YN = 1.0;
+const ZN = 1.08883;
 
 export function lab2rgb(lab: ColorChannels): ColorChannels {
 	let y = (lab[0] + 16) / 116,
 		x = lab[1] / 500 + y,
 		z = y - lab[2] / 200;
 
-	x = 0.95047 * labFN(x);
-	y = 1.0 * labFN(y);
-	z = 1.08883 * labFN(z);
+	x = XN * labFN(x);
+	y = YN * labFN(y);
+	z = ZN * labFN(z);
 
 	const r = x * 3.2406 + y * -1.5372 + z * -0.4986;
 	const g = x * -0.9689 + y * 1.8758 + z * 0.0415;
@@ -31,9 +35,9 @@ export function rgb2lab(rgb: ColorChannels): ColorChannels {
 	const g = rgbDeGamma(rgb[1] / 255);
 	const b = rgbDeGamma(rgb[2] / 255);
 
-	const x = labF((r * 0.4124 + g * 0.3576 + b * 0.1805) / 0.95047);
-	const y = labF((r * 0.2126 + g * 0.7152 + b * 0.0722) / 1.0);
-	const z = labF((r * 0.0193 + g * 0.1192 + b * 0.9505) / 1.08883);
+	const x = labF((r * 0.4124 + g * 0.3576 + b * 0.1805) / XN);
+	const y = labF((r * 0.2126 + g * 0.7152 + b * 0.0722) / YN);
+	const z = labF((r * 0.0193 + g * 0.1192 + b * 0.9505) / ZN);
 
 	return [116 * y - 16, 500 * (x - y), 200 * (y - z)];
 }
