@@ -5,7 +5,6 @@ export interface PaletteProps {
 	shades: Grade;
 	// Accent
 	accent?: Grade;
-	coAccent?: Grade;
 	// Munsell
 	munsell?: Grade;
 	red?: Grade;
@@ -18,20 +17,10 @@ export interface PaletteProps {
 
 const GRADES = 10;
 
-type PaletteKeys =
-	| "shades"
-	| "accent"
-	| "coAccent"
-	| "red"
-	| "yellow"
-	| "green"
-	| "cyan"
-	| "blue"
-	| "purple";
+type PaletteKeys = "shades" | "accent" | "red" | "yellow" | "green" | "cyan" | "blue" | "purple";
 const PaletteKeys: PaletteKeys[] = [
 	"shades",
 	"accent",
-	"coAccent",
 	"red",
 	"yellow",
 	"green",
@@ -43,7 +32,6 @@ const PaletteKeys: PaletteKeys[] = [
 export class Palette {
 	public shades: Color[];
 	public accent: Color[];
-	public coAccent: Color[];
 	public red: Color[];
 	public yellow: Color[];
 	public green: Color[];
@@ -51,10 +39,11 @@ export class Palette {
 	public blue: Color[];
 	public purple: Color[];
 
+	private isDark: boolean;
+
 	constructor(props: PaletteProps) {
 		this.shades = getColorGrades(GRADES, props.shades);
 		this.accent = getColorGrades(GRADES, { ...props.shades, ...props.accent });
-		this.coAccent = getColorGrades(GRADES, { ...props.shades, ...props.coAccent });
 
 		// "Munsell" common colors
 		const mnCommon = { ...props.shades, ...props.accent, ...props.munsell };
@@ -64,6 +53,8 @@ export class Palette {
 		this.cyan = getColorGrades(GRADES, { ...mnCommon, ...props.cyan });
 		this.blue = getColorGrades(GRADES, { ...mnCommon, ...props.blue });
 		this.purple = getColorGrades(GRADES, { ...mnCommon, ...props.purple });
+
+		this.isDark = this.shades[0].L < this.shades[GRADES].L;
 	}
 
 	public print() {
@@ -72,6 +63,11 @@ export class Palette {
 			while (kn.length < 12) kn = " " + kn;
 			console.log(kn, ":", this[k].map(c => c.ansiBlock()).join(""));
 		}
+	}
+
+	public absGrade(grade: number) {
+		if (this.isDark) return grade;
+		else return GRADES - grade;
 	}
 }
 

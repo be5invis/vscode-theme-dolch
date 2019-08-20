@@ -1,7 +1,7 @@
 import { Palette } from "../color/palette";
 
 export default function generateColorTheme(themeName: string, palette: Palette) {
-	const { shades, red, yellow, green, blue, accent, coAccent: user } = palette;
+	const { shades, red, yellow, green, blue, cyan, accent } = palette;
 
 	const bg = shades[0];
 	const fg = shades[8];
@@ -14,31 +14,35 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		fontStyle: "bold",
 		foreground: shades[10].hex()
 	};
+	const storage = {
+		fontStyle: "bold",
+		foreground: shades[10].hex()
+	};
 	const operator = {
 		fontStyle: "",
 		foreground: accent[10].hex()
 	};
 	const weakOperator = {
-		foreground: user[10].hex()
+		foreground: shades[10].hex()
 	};
 	const literal = {
-		foreground: accent[7].hex()
+		foreground: accent[9].hex()
 	};
 	const comment = {
 		foreground: shades[6].hex()
 	};
 	const library = {
-		foreground: user[8].hex()
+		foreground: shades[9].hex()
 	};
 	const quote = {
 		fontStyle: "italic",
 		foreground: accent[7].hex()
 	};
 	const declare = {
-		foreground: user[8].hex()
+		foreground: shades[9].hex()
 	};
 	const punctuation = {
-		foreground: user[5].hex()
+		foreground: shades[5].hex()
 	};
 	const invalid = {
 		foreground: red[7].hex()
@@ -55,7 +59,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"editor.background": bg.hex(),
 			"editor.foreground": fg.hex(),
 			"editor.lineHighlightBackground": shades[1].hex(),
-			"editorCursor.foreground": accent[9].hex(),
+			"editorCursor.foreground": accent[10].hex(),
 			"editorLineNumber.foreground": shades[5].hex(),
 			"editorActiveLineNumber.foreground": shades[10].hex(),
 
@@ -98,10 +102,10 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"scrollbarSlider.hoverBackground": shades[10].alpha(0.15).hexaa(),
 
 			"editorOverviewRuler.border": "#00000000",
-			"editorGutter.modifiedBackground": blue[3].hex(),
+			"editorGutter.modifiedBackground": cyan[3].hex(),
 			"editorGutter.addedBackground": green[3].hex(),
 			"editorGutter.deletedBackground": red[3].hex(),
-			"editorOverviewRuler.modifiedForeground": blue[3].hex(),
+			"editorOverviewRuler.modifiedForeground": cyan[3].hex(),
 			"editorOverviewRuler.addedForeground": green[3].hex(),
 			"editorOverviewRuler.deletedForeground": red[3].hex(),
 			"editorOverviewRuler.infoForeground": blue[5].hex(),
@@ -125,7 +129,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"list.errorForeground": red[8].hex(),
 			"list.warningForeground": yellow[8].hex(),
 
-			"gitDecoration.modifiedResourceForeground": blue[8].hex(),
+			"gitDecoration.modifiedResourceForeground": cyan[8].hex(),
 			"gitDecoration.addedResourceForeground": green[8].hex(),
 			"gitDecoration.untrackedResourceForeground": green[8].hex(),
 			"gitDecoration.deletedResourceForeground": red[8].hex(),
@@ -140,14 +144,13 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"input.foreground": shades[8].hex(),
 			"input.placeholderForeground": shades[5].hex(),
 
-			"button.background": accent[6].hex(),
-			"button.foreground": shades[10].hex(),
-			"button.hoverBackground": accent[7].hex(),
-
-			"badge.background": accent[4].hex(),
-			"badge.foreground": shades[10].hex(),
-			"activityBarBadge.background": accent[4].hex(),
-			"activityBarBadge.foreground": shades[10].hex(),
+			"button.background": accent[palette.absGrade(6)].hex(),
+			"button.foreground": shades[palette.absGrade(10)].hex(),
+			"button.hoverBackground": accent[palette.absGrade(7)].hex(),
+			"badge.background": accent[palette.absGrade(4)].hex(),
+			"badge.foreground": shades[palette.absGrade(10)].hex(),
+			"activityBarBadge.background": accent[palette.absGrade(4)].hex(),
+			"activityBarBadge.foreground": shades[palette.absGrade(10)].hex(),
 			"activityBar.background": shades[3].hex(),
 			"activityBar.foreground": shades[9].hex(),
 
@@ -161,10 +164,10 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"panel.border": border.hex(),
 			"panelTitle.activeBorder": accent[5].hex(),
 
-			"titleBar.activeBackground": shades[2].hex(),
-			"titleBar.activeForeground": shades[9].hex(),
-			"titleBar.inactiveBackground": shades[6].hex(),
-			"titleBar.inactiveForeground": shades[1].hex(),
+			"titleBar.activeBackground": shades[palette.absGrade(2)].hex(),
+			"titleBar.activeForeground": shades[palette.absGrade(9)].hex(),
+			"titleBar.inactiveBackground": shades[palette.absGrade(3)].hex(),
+			"titleBar.inactiveForeground": shades[palette.absGrade(8)].hex(),
 
 			"breadcrumb.foreground": comment.foreground,
 			"breadcrumb.focusForeground": quote.foreground,
@@ -297,7 +300,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 					"storage.type.const.js",
 					"entity.name.tag"
 				],
-				settings: keyword
+				settings: storage
 			},
 			{
 				name: "Pointer, access, etc",

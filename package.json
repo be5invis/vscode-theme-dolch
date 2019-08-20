@@ -38,6 +38,11 @@
 				"label": "Dolch",
 				"uiTheme": "vs-dark",
 				"path": "./themes/dolch.json"
+			},
+			{
+				"label": "Dolch Light",
+				"uiTheme": "vs",
+				"path": "./themes/dolch-light.json"
 			}
 		]
 	}
