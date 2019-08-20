@@ -1,0 +1,44 @@
+{
+	"name": "theme-dolch",
+	"version": "0.5.1",
+	"engineStrict": true,
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"devDependencies": {
+		"@types/node": "~8.5.10",
+		"rimraf": "~2.6.2",
+		"tslint": "^5.10.0",
+		"typescript": "^3.0.0",
+		"prettier": "^1.18.2"
+	},
+	"scripts": {
+		"clean": "rimraf coverage lib tmp",
+		"build": "tsc -p tsconfig.json",
+		"watch": "tsc -w -p tsconfig.json"
+	},
+	"author": "Renzhi Li aka Belleve Invis<belleve@typeof.net>",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/be5invis/vscode-theme-dolch"
+	},
+	"license": "MIT",
+	"dependencies": {
+		"tslib": "~1.9.0"
+	},
+	"publisher": "be5invis",
+	"displayName": "Dolch Theme",
+	"description": "Dolch themes for VS Code.",
+	"categories": [
+		"Themes"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Dolch",
+				"uiTheme": "vs-dark",
+				"path": "./themes/dolch.json"
+			}
+		]
+	}
+}

@@ -1,0 +1,4 @@
+src
+payloads
+.vscode
+**/*.js.map
