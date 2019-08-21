@@ -1,0 +1,11 @@
+.gitignore
+.vscode/
+samples/
+node_modules/
+src/
+lib/
+.prettierrc.yaml
+.npmignore*
+tsconfig*
+tslint*
+images/dolch.png
