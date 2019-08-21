@@ -50,7 +50,7 @@
 		"peekView.border": "#E0E5E4",
 		"peekViewTitle.background": "#EDF3F2FF",
 		"peekViewEditor.background": "#CED4D32B",
-		"scrollbar.shadow": "#2227261A",
+		"scrollbar.shadow": "#0000001A",
 		"scrollbarSlider.background": "#22272613",
 		"scrollbarSlider.activeBackground": "#22272626",
 		"scrollbarSlider.hoverBackground": "#22272626",

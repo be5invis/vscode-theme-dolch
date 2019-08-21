@@ -1,3 +1,4 @@
+import { Color } from "../color/color";
 import { Palette } from "../color/palette";
 
 export default function generateColorTheme(themeName: string, palette: Palette) {
@@ -108,7 +109,9 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"peekViewTitle.background": shades[1].hexaa(),
 			"peekViewEditor.background": shades[3].alpha(1 / 6).hexaa(),
 
-			"scrollbar.shadow": shades[10].alpha(0.1).hexaa(),
+			"scrollbar.shadow": Color.rgb(0, 0, 0)
+				.alpha(0.1)
+				.hexaa(),
 			"scrollbarSlider.background": shades[10].alpha(0.075).hexaa(),
 			"scrollbarSlider.activeBackground": shades[10].alpha(0.15).hexaa(),
 			"scrollbarSlider.hoverBackground": shades[10].alpha(0.15).hexaa(),
