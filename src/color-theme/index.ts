@@ -92,7 +92,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"editorWidget.background": shades[2].hexaa(),
 			"editorSuggestWidget.background": bg.hexaa(),
 
-			"editorGroup.border": border.hex(),
+			"editorGroup.border": shades[1].hex(),
 			"editorGroupHeader.noTabsBackground": bg.hex(),
 			"editorGroupHeader.tabsBackground": bg.hex(),
 			"tab.border": bg.hex(),
@@ -104,9 +104,9 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"tab.hoverBorder": accent[5].hex(),
 			"tab.activeBorder": accent[8].hex(),
 
-			"peekViewEditor.background": shades[3].alpha(1 / 3).hexaa(),
-			"peekViewTitle.background": shades[0].hexaa(),
-			"peekView.border": border.hex(),
+			"peekView.border": shades[2].hex(),
+			"peekViewTitle.background": shades[1].hexaa(),
+			"peekViewEditor.background": shades[3].alpha(1 / 6).hexaa(),
 
 			"scrollbar.shadow": shades[10].alpha(0.1).hexaa(),
 			"scrollbarSlider.background": shades[10].alpha(0.075).hexaa(),
