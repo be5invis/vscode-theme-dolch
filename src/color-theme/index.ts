@@ -1,7 +1,7 @@
 import { Palette } from "../color/palette";
 
 export default function generateColorTheme(themeName: string, palette: Palette) {
-	const { shades, red, yellow, green, blue, cyan, accent } = palette;
+	const { shades, red, yellow, orange, green, blue, cyan, accent } = palette;
 
 	const bg = shades[0];
 	const fg = shades[8];
@@ -29,7 +29,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		foreground: accent[9].hex()
 	};
 	const comment = {
-		foreground: shades[6].hex()
+		foreground: shades[5].hex()
 	};
 	const library = {
 		foreground: shades[9].hex()
@@ -61,11 +61,20 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"editor.lineHighlightBackground": shades[1].hex(),
 			"editorCursor.foreground": accent[10].hex(),
 			"editorLineNumber.foreground": shades[5].hex(),
+			"editorCodeLens.foreground": shades[5].hex(),
 			"editorActiveLineNumber.foreground": shades[10].hex(),
 
-			"editor.selectionBackground": accent[9].alpha(1 / 4).hexaa(),
-			"editor.selectionHighlightBackground": accent[1].hexaa(),
-			"editor.inactiveSelectionBackground": shades[9].alpha(1 / 4).hexaa(),
+			"editor.selectionBackground": accent[7].alpha(6 / 16).hexaa(),
+			"editor.inactiveSelectionBackground": shades[7].alpha(6 / 16).hexaa(),
+			"editor.selectionHighlightBackground": accent[4].alpha(5 / 16).hexaa(),
+			"editor.wordHighlightBackground": shades[5].alpha(5 / 16).hexaa(),
+			"editor.wordHighlightStrongBackground": accent[5].alpha(5 / 16).hexaa(),
+			"editor.findMatchBackground": orange[9].alpha(6 / 16).hexaa(),
+			"editor.findMatchHighlightBackground": orange[9].alpha(3 / 16).hexaa(),
+			"editor.findRangeHighlightBackground": shades[4].alpha(5 / 16).hexaa(),
+			"editorLink.activeForeground": accent[10].hex(),
+			"editorBracketMatch.background": shades[4].alpha(5 / 16).hexaa(),
+			"editorBracketMatch.border": shades[4].alpha(12 / 16).hexaa(),
 
 			"editorError.foreground": red[8].hex(),
 			"editorWarning.foreground": yellow[8].hex(),
@@ -85,12 +94,15 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 
 			"editorGroup.border": border.hex(),
 			"editorGroupHeader.noTabsBackground": bg.hex(),
-			"editorGroupHeader.tabsBackground": shades[2].hex(),
-			"tab.border": border.hex(),
-			"tab.inactiveBackground": shades[2].hex(),
+			"editorGroupHeader.tabsBackground": bg.hex(),
+			"tab.border": bg.hex(),
+			"tab.inactiveBackground": bg.hex(),
 			"tab.inactiveForeground": shades[7].hex(),
 			"tab.activeBackground": bg.hex(),
 			"tab.activeForeground": shades[10].hex(),
+			"tab.hoverBackground": shades[1].hex(),
+			"tab.hoverBorder": accent[5].hex(),
+			"tab.activeBorder": accent[8].hex(),
 
 			"peekViewEditor.background": shades[3].alpha(1 / 3).hexaa(),
 			"peekViewTitle.background": shades[0].hexaa(),
@@ -102,15 +114,17 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"scrollbarSlider.hoverBackground": shades[10].alpha(0.15).hexaa(),
 
 			"editorOverviewRuler.border": "#00000000",
-			"editorGutter.modifiedBackground": cyan[3].hex(),
-			"editorGutter.addedBackground": green[3].hex(),
-			"editorGutter.deletedBackground": red[3].hex(),
-			"editorOverviewRuler.modifiedForeground": cyan[3].hex(),
-			"editorOverviewRuler.addedForeground": green[3].hex(),
-			"editorOverviewRuler.deletedForeground": red[3].hex(),
+			"editorGutter.modifiedBackground": cyan[4].hex(),
+			"editorGutter.addedBackground": green[4].hex(),
+			"editorGutter.deletedBackground": red[4].hex(),
+			"editorOverviewRuler.modifiedForeground": cyan[4].hex(),
+			"editorOverviewRuler.addedForeground": green[4].hex(),
+			"editorOverviewRuler.deletedForeground": red[4].hex(),
 			"editorOverviewRuler.infoForeground": blue[5].hex(),
 			"editorOverviewRuler.warningForeground": yellow[5].hex(),
 			"editorOverviewRuler.errorForeground": red[5].hex(),
+			"editorOverviewRuler.wordHighlightForeground": shades[5].hex(),
+			"editorOverviewRuler.wordHighlightStrongForeground": shades[5].hex(),
 			"diffEditor.removedTextBackground": red[5].alpha(0.15).hexaa(),
 			"diffEditor.insertedTextBackground": green[5].alpha(0.1).hexaa(),
 
@@ -135,7 +149,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			"gitDecoration.deletedResourceForeground": red[8].hex(),
 			"gitDecoration.conflictingResourceForeground": red[8].hex(),
 
-			"dropdown.background": shades[2].hex(),
+			"dropdown.background": shades[1].hex(),
 			"dropdown.border": border.hex(),
 			"dropdown.foreground": shades[8].hex(),
 

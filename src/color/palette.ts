@@ -109,7 +109,7 @@ export class Palette {
 	}
 }
 
-export function StandardMunsell(angle: number) {
+export function StandardRing(angle: number) {
 	return {
 		red: { hue: angle + 0 },
 		orange: { hue: angle + 30 },

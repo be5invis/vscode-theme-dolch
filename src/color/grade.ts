@@ -28,10 +28,11 @@ function mix(a: number, s: number, b: number) {
 export function getColorGrades(steps: number, grade: Grade): Color[] {
 	let colors: Color[] = [];
 	for (let step = 0; step <= steps; step++) {
-		const scale = Math.pow(step / steps, grade.power || 1);
-		const luma = mix(r0(grade.luma), scale, r1(grade.luma));
-		const chroma = mix(r0(grade.chroma), scale, r1(grade.chroma));
-		const hue = mix(r0(grade.hue), scale, r1(grade.hue)) * DEGREE;
+		const scaleChroma = step / steps;
+		const scaleLuma = Math.pow(scaleChroma, grade.power || 1);
+		const luma = mix(r0(grade.luma), scaleLuma, r1(grade.luma));
+		const chroma = mix(r0(grade.chroma), scaleChroma, r1(grade.chroma));
+		const hue = mix(r0(grade.hue), scaleChroma, r1(grade.hue)) * DEGREE;
 		colors.push(Color.lch(luma, chroma, hue));
 	}
 	return colors;
