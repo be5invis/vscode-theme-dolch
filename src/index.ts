@@ -7,7 +7,7 @@ import generateIcons from "./icons";
 import { inspectColor } from "./util";
 
 const Dark = new Palette({
-	shades: { luma: [6, 92], chroma: 2, hue: 188 },
+	shades: { luma: [6, 90], chroma: 2, hue: 188 },
 	accent: { luma: [6, 90], chroma: [42, 36], hue: 212 },
 	// Fixed hue colors ("Ring")
 	ring: { chroma: [32, 56] },
