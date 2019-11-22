@@ -68,11 +68,14 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"editor.wordHighlightBackground": shades[5].alpha(5 / 16).hexaa(),
 		"editor.wordHighlightStrongBackground": accent[5].alpha(5 / 16).hexaa(),
 		"editor.findMatchBackground": orange[9].alpha(6 / 16).hexaa(),
-		"editor.findMatchHighlightBackground": orange[9].alpha(3 / 16).hexaa(),
+		"editor.findMatchHighlightBackground": orange[7].alpha(5 / 16).hexaa(),
 		"editor.findRangeHighlightBackground": shades[4].alpha(5 / 16).hexaa(),
 		"editorLink.activeForeground": accent[10].hex(),
 		"editorBracketMatch.background": shades[4].alpha(5 / 16).hexaa(),
 		"editorBracketMatch.border": shades[4].alpha(12 / 16).hexaa(),
+
+		"minimap.findMatchHighlight": orange[7].alpha(5 / 16).hexaa(),
+		"minimap.selectionHighlight": accent[7].alpha(6 / 16).hexaa(),
 
 		"editorError.foreground": red[8].hex(),
 		"editorWarning.foreground": yellow[8].hex(),
