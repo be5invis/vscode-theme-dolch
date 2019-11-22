@@ -137,14 +137,16 @@
 		"tests": "folder-test-close-dark",
 		"spec": "folder-test-close-dark",
 		".vscode": "folder-vscode-close-dark",
-		".circleci": "folder-circleci-close-dark"
+		".circleci": "folder-circleci-close-dark",
+		".github": "folder-github-close-dark"
 	},
 	"folderNamesExpanded": {
 		"test": "folder-test-open-dark",
 		"tests": "folder-test-open-dark",
 		"spec": "folder-test-open-dark",
 		".vscode": "folder-vscode-open-dark",
-		".circleci": "folder-circleci-open-dark"
+		".circleci": "folder-circleci-open-dark",
+		".github": "folder-github-open-dark"
 	},
 	"light": {
 		"folder": "folder-close-light",
@@ -285,14 +287,16 @@
 			"tests": "folder-test-close-light",
 			"spec": "folder-test-close-light",
 			".vscode": "folder-vscode-close-light",
-			".circleci": "folder-circleci-close-light"
+			".circleci": "folder-circleci-close-light",
+			".github": "folder-github-close-light"
 		},
 		"folderNamesExpanded": {
 			"test": "folder-test-open-light",
 			"tests": "folder-test-open-light",
 			"spec": "folder-test-open-light",
 			".vscode": "folder-vscode-open-light",
-			".circleci": "folder-circleci-open-light"
+			".circleci": "folder-circleci-open-light",
+			".github": "folder-github-open-light"
 		}
 	},
 	"iconDefinitions": {
@@ -655,6 +659,18 @@
 		},
 		"folder-circleci-open-light": {
 			"iconPath": "./folder-circleci-open-light.svg"
+		},
+		"folder-github-close-dark": {
+			"iconPath": "./folder-github-close-dark.svg"
+		},
+		"folder-github-close-light": {
+			"iconPath": "./folder-github-close-light.svg"
+		},
+		"folder-github-open-dark": {
+			"iconPath": "./folder-github-open-dark.svg"
+		},
+		"folder-github-open-light": {
+			"iconPath": "./folder-github-open-light.svg"
 		}
 	}
 }

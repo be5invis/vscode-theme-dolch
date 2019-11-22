@@ -200,4 +200,5 @@ function recipe($: IconDefiner) {
 	dir("spec", "test");
 	dir(".vscode", "vscode");
 	dir(".circleci", "circleci");
+	dir(".github", "github");
 }

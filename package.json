@@ -1,6 +1,6 @@
 {
 	"name": "theme-dolch",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"engineStrict": true,
 	"engines": {
 		"vscode": "^1.33.0"
