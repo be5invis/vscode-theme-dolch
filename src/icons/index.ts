@@ -102,6 +102,7 @@ function recipe($: IconDefiner) {
 	ext("jsx");
 	ext("mjs", "js");
 	ext("md");
+	ext("mdx");
 	ext("mkd", "md");
 	ext("markdown", "md");
 	ext("ts");

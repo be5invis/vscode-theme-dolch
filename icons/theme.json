@@ -57,6 +57,7 @@
 		"jsx": "jsx-dark",
 		"mjs": "js-dark",
 		"md": "md-dark",
+		"mdx": "mdx-dark",
 		"mkd": "md-dark",
 		"markdown": "md-dark",
 		"ts": "ts-dark",
@@ -207,6 +208,7 @@
 			"jsx": "jsx-light",
 			"mjs": "js-light",
 			"md": "md-light",
+			"mdx": "mdx-light",
 			"mkd": "md-light",
 			"markdown": "md-light",
 			"ts": "ts-light",
@@ -371,6 +373,12 @@
 		},
 		"md-light": {
 			"iconPath": "./md-light.svg"
+		},
+		"mdx-dark": {
+			"iconPath": "./mdx-dark.svg"
+		},
+		"mdx-light": {
+			"iconPath": "./mdx-light.svg"
 		},
 		"ts-dark": {
 			"iconPath": "./ts-dark.svg"
