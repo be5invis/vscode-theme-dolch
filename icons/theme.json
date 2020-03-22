@@ -12,6 +12,7 @@
 		"licence.txt": "license-dark",
 		"licence.md": "license-dark",
 		".gitignore": "git-dark",
+		".gitattributes": "git-dark",
 		".travis.yml": "travis-dark",
 		"azure-pipelines.yml": "azure-pipelines-dark",
 		"appveyor.yml": "appveyor-dark",
@@ -19,8 +20,10 @@
 		".clang-format": "config-dark",
 		"makefile": "config-dark",
 		".esformatter": "config-js-dark",
-		".eslintrc": "config-js-dark",
-		".eslintignore": "config-js-dark",
+		".eslintrc": "config-eslint-dark",
+		".eslintrc.js": "config-eslint-dark",
+		".eslintrc.json": "config-eslint-dark",
+		".eslintignore": "config-eslint-dark",
 		".babelrc": "config-js-dark",
 		"package.json": "npm-dark",
 		"package-lock.json": "file-npm-dark",
@@ -32,7 +35,23 @@
 		".prettierrc.yml": "file-prettier-dark",
 		".prettierrc.json": "file-prettier-dark",
 		".prettierrc.js": "file-prettier-dark",
+		".vscodeignore": "file-vscode-dark",
 		"prettier.config.js": "file-prettier-dark",
+		"tslint.json": "config-tslint-dark",
+		"tslint.yaml": "config-tslint-dark",
+		"tsconfig.json": "config-ts-dark",
+		"tsconfig.base.json": "config-ts-dark",
+		"tsconfig.build.json": "config-ts-dark",
+		"tsconfig.prod.json": "config-ts-dark",
+		"tsconfig.release.json": "config-ts-dark",
+		"ava.config.cjs": "config-test-dark",
+		"ava.config.js": "config-test-dark",
+		"jest.config.js": "config-test-dark",
+		".mocharc": "config-test-dark",
+		".mocharc.json": "config-test-dark",
+		".mocharc.jsonc": "config-test-dark",
+		".mocharc.yml": "config-test-dark",
+		"jasmine.json": "config-test-dark",
 		"test.ts": "ts-test-dark",
 		"tests.ts": "ts-test-dark",
 		"spec.ts": "ts-test-dark",
@@ -124,6 +143,8 @@
 		"cmd": "batch-dark",
 		"wmf": "batch-dark",
 		"ps1": "batch-dark",
+		"yml": "yaml-dark",
+		"yaml": "yaml-dark",
 		"test.ts": "ts-test-dark",
 		"tests.ts": "ts-test-dark",
 		"spec.ts": "ts-test-dark",
@@ -163,6 +184,7 @@
 			"licence.txt": "license-light",
 			"licence.md": "license-light",
 			".gitignore": "git-light",
+			".gitattributes": "git-light",
 			".travis.yml": "travis-light",
 			"azure-pipelines.yml": "azure-pipelines-light",
 			"appveyor.yml": "appveyor-light",
@@ -170,8 +192,10 @@
 			".clang-format": "config-light",
 			"makefile": "config-light",
 			".esformatter": "config-js-light",
-			".eslintrc": "config-js-light",
-			".eslintignore": "config-js-light",
+			".eslintrc": "config-eslint-light",
+			".eslintrc.js": "config-eslint-light",
+			".eslintrc.json": "config-eslint-light",
+			".eslintignore": "config-eslint-light",
 			".babelrc": "config-js-light",
 			"package.json": "npm-light",
 			"package-lock.json": "file-npm-light",
@@ -183,7 +207,23 @@
 			".prettierrc.yml": "file-prettier-light",
 			".prettierrc.json": "file-prettier-light",
 			".prettierrc.js": "file-prettier-light",
+			".vscodeignore": "file-vscode-light",
 			"prettier.config.js": "file-prettier-light",
+			"tslint.json": "config-tslint-light",
+			"tslint.yaml": "config-tslint-light",
+			"tsconfig.json": "config-ts-light",
+			"tsconfig.base.json": "config-ts-light",
+			"tsconfig.build.json": "config-ts-light",
+			"tsconfig.prod.json": "config-ts-light",
+			"tsconfig.release.json": "config-ts-light",
+			"ava.config.cjs": "config-test-light",
+			"ava.config.js": "config-test-light",
+			"jest.config.js": "config-test-light",
+			".mocharc": "config-test-light",
+			".mocharc.json": "config-test-light",
+			".mocharc.jsonc": "config-test-light",
+			".mocharc.yml": "config-test-light",
+			"jasmine.json": "config-test-light",
 			"test.ts": "ts-test-light",
 			"tests.ts": "ts-test-light",
 			"spec.ts": "ts-test-light",
@@ -275,6 +315,8 @@
 			"cmd": "batch-light",
 			"wmf": "batch-light",
 			"ps1": "batch-light",
+			"yml": "yaml-light",
+			"yaml": "yaml-light",
 			"test.ts": "ts-test-light",
 			"tests.ts": "ts-test-light",
 			"spec.ts": "ts-test-light",
@@ -572,6 +614,12 @@
 		"batch-light": {
 			"iconPath": "./batch-light.svg"
 		},
+		"yaml-dark": {
+			"iconPath": "./yaml-dark.svg"
+		},
+		"yaml-light": {
+			"iconPath": "./yaml-light.svg"
+		},
 		"git-dark": {
 			"iconPath": "./git-dark.svg"
 		},
@@ -602,6 +650,12 @@
 		"config-js-light": {
 			"iconPath": "./config-js-light.svg"
 		},
+		"config-eslint-dark": {
+			"iconPath": "./config-eslint-dark.svg"
+		},
+		"config-eslint-light": {
+			"iconPath": "./config-eslint-light.svg"
+		},
 		"npm-dark": {
 			"iconPath": "./npm-dark.svg"
 		},
@@ -619,6 +673,30 @@
 		},
 		"file-prettier-light": {
 			"iconPath": "./file-prettier-light.svg"
+		},
+		"file-vscode-dark": {
+			"iconPath": "./file-vscode-dark.svg"
+		},
+		"file-vscode-light": {
+			"iconPath": "./file-vscode-light.svg"
+		},
+		"config-tslint-dark": {
+			"iconPath": "./config-tslint-dark.svg"
+		},
+		"config-tslint-light": {
+			"iconPath": "./config-tslint-light.svg"
+		},
+		"config-ts-dark": {
+			"iconPath": "./config-ts-dark.svg"
+		},
+		"config-ts-light": {
+			"iconPath": "./config-ts-light.svg"
+		},
+		"config-test-dark": {
+			"iconPath": "./config-test-dark.svg"
+		},
+		"config-test-light": {
+			"iconPath": "./config-test-light.svg"
 		},
 		"ts-test-dark": {
 			"iconPath": "./ts-test-dark.svg"

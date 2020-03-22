@@ -169,8 +169,11 @@ function recipe($: IconDefiner) {
 	ext("cmd", "batch");
 	ext("wmf", "batch");
 	ext("ps1", "batch");
+	ext("yml", "yaml");
+	ext("yaml", "yaml");
 
 	fn(".gitignore", "git");
+	fn(".gitattributes", "git");
 	fn(".travis.yml", "travis");
 	fn("azure-pipelines.yml", "azure-pipelines");
 	fn("appveyor.yml", "appveyor");
@@ -178,8 +181,10 @@ function recipe($: IconDefiner) {
 	fn(".clang-format", "config");
 	fn("makefile", "config");
 	fn(".esformatter", "config-js");
-	fn(".eslintrc", "config-js");
-	fn(".eslintignore", "config-js");
+	fn(".eslintrc", "config-eslint");
+	fn(".eslintrc.js", "config-eslint");
+	fn(".eslintrc.json", "config-eslint");
+	fn(".eslintignore", "config-eslint");
 	fn(".babelrc", "config-js");
 	fn("package.json", "npm");
 	fn("package-lock.json", "file-npm");
@@ -191,7 +196,23 @@ function recipe($: IconDefiner) {
 	fn(".prettierrc.yml", "file-prettier");
 	fn(".prettierrc.json", "file-prettier");
 	fn(".prettierrc.js", "file-prettier");
+	fn(".vscodeignore", "file-vscode");
 	fn("prettier.config.js", "file-prettier");
+	fn("tslint.json", "config-tslint");
+	fn("tslint.yaml", "config-tslint");
+	fn("tsconfig.json", "config-ts");
+	fn("tsconfig.base.json", "config-ts");
+	fn("tsconfig.build.json", "config-ts");
+	fn("tsconfig.prod.json", "config-ts");
+	fn("tsconfig.release.json", "config-ts");
+	fn("ava.config.cjs", "config-test");
+	fn("ava.config.js", "config-test");
+	fn("jest.config.js", "config-test");
+	fn(".mocharc", "config-test");
+	fn(".mocharc.json", "config-test");
+	fn(".mocharc.jsonc", "config-test");
+	fn(".mocharc.yml", "config-test");
+	fn("jasmine.json", "config-test");
 
 	testFile("ts");
 	testFile("js");
