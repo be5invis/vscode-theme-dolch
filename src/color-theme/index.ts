@@ -66,7 +66,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 	};
 	const builtInType = {
 		fontStyle: "",
-		foreground: coAccent[10].hex()
+		foreground: coAccent[9].hex()
 	};
 	const typeParameter = {
 		fontStyle: "italic",
