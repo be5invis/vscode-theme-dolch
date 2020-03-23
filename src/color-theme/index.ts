@@ -2,13 +2,23 @@ import { Color } from "../color/color";
 import { Palette } from "../color/palette";
 
 export default function generateColorTheme(themeName: string, palette: Palette) {
-	const { shades, red, yellow, orange, green, blue, cyan, accent } = palette;
+	const { shades, red, yellow, orange, green, blue, cyan, coAccent, accent } = palette;
 
 	const bg = shades[0];
 	const fg = shades[8];
 	const border = shades[3];
+
 	// token settings
-	const variable = {
+	const identifier = {
+		fontStyle: "",
+		foreground: fg.hex()
+	};
+	const property = {
+		fontStyle: "",
+		foreground: shades[7].hex()
+	};
+	const parameter = {
+		fontStyle: "italic",
 		foreground: fg.hex()
 	};
 	const keyword = {
@@ -41,6 +51,9 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 	};
 	const declare = {
 		foreground: shades[9].hex()
+	};
+	const typeName = {
+		foreground: coAccent[8].hex()
 	};
 	const punctuation = {
 		foreground: shades[5].hex()
@@ -109,9 +122,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"peekViewTitle.background": shades[1].hexaa(),
 		"peekViewEditor.background": shades[3].alpha(1 / 6).hexaa(),
 
-		"scrollbar.shadow": Color.rgb(0, 0, 0)
-			.alpha(0.1)
-			.hexaa(),
+		"scrollbar.shadow": Color.rgb(0, 0, 0).alpha(0.1).hexaa(),
 		"scrollbarSlider.background": shades[10].alpha(0.075).hexaa(),
 		"scrollbarSlider.activeBackground": shades[10].alpha(0.15).hexaa(),
 		"scrollbarSlider.hoverBackground": shades[10].alpha(0.15).hexaa(),
@@ -196,14 +207,31 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 
 	const tokenColors = [
 		{
-			name: "Variable and parameter name",
-			scope: ["variable", "meta.definition.variable.name", "support.variable"],
-			settings: variable
+			name: "Identifier",
+			scope: [
+				"variable",
+				"meta.definition.variable.name",
+				"support.variable",
+				"variable.other.readwrite",
+				"variable.other.constant",
+				"variable.other.readonly"
+			],
+			settings: identifier
+		},
+		{
+			name: "Parameter",
+			scope: ["variable.parameter"],
+			settings: parameter
+		},
+		{
+			name: "Member Access",
+			scope: ["variable.other.property"],
+			settings: property
 		},
 		{
 			name: "Object keys, TS grammar specific",
 			scope: ["meta.object-literal.key", "meta.object-literal.key entity.name.function"],
-			settings: variable
+			settings: identifier
 		},
 		{
 			name: "Comment",
@@ -259,6 +287,10 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			settings: quote
 		},
 		{
+			scope: ["meta.template.expression.ts"],
+			settings: { fontStyle: "" }
+		},
+		{
 			name: "Primitive Literals",
 			scope: [
 				"constant.numeric",
@@ -271,15 +303,20 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			settings: literal
 		},
 		{
+			name: "Type name",
+			scope: ["entity.name.type", "support.type"],
+			settings: typeName
+		},
+		{
 			name: "User names",
 			scope: [
 				"constant.character",
 				"constant.other",
-				"entity.name.function",
+				"entity.name",
 				"entity.name.class",
+				"entity.name.function",
 				"entity.other.inherited-class",
 				"entity.other.attribute-name",
-				"entity.name",
 				"entity.other.attribute-name",
 				"entity.other.attribute-name.html",
 				"support.type.property-name",
@@ -332,9 +369,15 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			scope: "meta.preprocessor",
 			settings: declare
 		},
+
 		{
 			name: "Library",
-			scope: ["support.type", "support.class", "support.function", "support.constant"],
+			scope: [
+				"support.class",
+				"support.function",
+				"support.constant",
+				"variable.language.this"
+			],
 			settings: library
 		},
 		{
@@ -415,6 +458,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		$schema: "vscode://schemas/color-theme",
 		name: themeName,
 		colors: uiColors,
-		tokenColors
+		tokenColors,
+		semanticHighlighting: true
 	};
 }

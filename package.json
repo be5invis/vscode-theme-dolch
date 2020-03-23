@@ -1,6 +1,6 @@
 {
 	"name": "theme-dolch",
-	"version": "0.2.1",
+	"version": "0.3.0",
 	"engineStrict": true,
 	"engines": {
 		"vscode": "^1.33.0"
@@ -10,7 +10,7 @@
 		"rimraf": "~2.6.2",
 		"tslint": "^5.10.0",
 		"typescript": "^3.0.0",
-		"prettier": "^1.18.2"
+		"prettier": "^2.0.1"
 	},
 	"scripts": {
 		"clean": "rimraf coverage lib tmp",
@@ -52,5 +52,5 @@
 				"path": "./icons/theme.json"
 			}
 		]
-	}
+  }
 }

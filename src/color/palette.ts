@@ -2,11 +2,17 @@ import { Color } from "./color";
 import { getColorGrades, Grade } from "./grade";
 
 export interface PaletteProps {
+	// Shades
 	shades: Grade;
+	coShades?: Grade;
+
 	// Accent
 	accent?: Grade;
+	coAccent?: Grade;
+
 	// Color ring
 	ring?: Grade;
+
 	// We define 12 "ring" colors uniformly lies on LCH cylinder
 	red?: Grade;
 	orange?: Grade;
@@ -26,7 +32,9 @@ const GRADES = 10;
 
 type PaletteKeys =
 	| "shades"
+	| "coShades"
 	| "accent"
+	| "coAccent"
 	| "red"
 	| "orange"
 	| "yellow"
@@ -41,7 +49,9 @@ type PaletteKeys =
 	| "rose";
 const PaletteKeys: PaletteKeys[] = [
 	"shades",
+	"coShades",
 	"accent",
+	"coAccent",
 	"red",
 	"orange",
 	"yellow",
@@ -59,6 +69,8 @@ const PaletteKeys: PaletteKeys[] = [
 export class Palette {
 	public shades: Color[];
 	public accent: Color[];
+	public coShades: Color[];
+	public coAccent: Color[];
 	public red: Color[];
 	public orange: Color[];
 	public yellow: Color[];
@@ -76,7 +88,9 @@ export class Palette {
 
 	constructor(props: PaletteProps) {
 		this.shades = getColorGrades(GRADES, props.shades);
+		this.coShades = getColorGrades(GRADES, { ...props.shades, ...props.coShades });
 		this.accent = getColorGrades(GRADES, { ...props.shades, ...props.accent });
+		this.coAccent = getColorGrades(GRADES, { ...props.shades, ...props.coAccent });
 
 		const ringCommon = { ...props.shades, ...props.accent, ...props.ring };
 		this.red = getColorGrades(GRADES, { ...ringCommon, ...props.red });
@@ -99,7 +113,7 @@ export class Palette {
 		for (const k of PaletteKeys) {
 			let kn: string = k;
 			while (kn.length < 12) kn = " " + kn;
-			console.log(kn, ":", this[k].map(c => c.ansiBlock()).join(""));
+			console.log(kn, ":", this[k].map((c) => c.ansiBlock()).join(""));
 		}
 	}
 
