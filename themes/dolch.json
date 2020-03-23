@@ -156,7 +156,7 @@
 			],
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#9A9EA0"
+				"foreground": "#7EA3B5"
 			}
 		},
 		{
@@ -220,10 +220,11 @@
 				"punctuation.definition.template-expression.end.ts",
 				"punctuation.definition.template-expression.end.js",
 				"punctuation.section.embedded.begin.metatag.php",
-				"punctuation.section.embedded.end.metatag.php"
+				"punctuation.section.embedded.end.metatag.php",
+				"punctuation.definition.typeparameters"
 			],
 			"settings": {
-				"foreground": "#DFE3E6"
+				"foreground": "#688C9F"
 			}
 		},
 		{
@@ -264,12 +265,43 @@
 			}
 		},
 		{
+			"name": "Namespace",
+			"scope": [
+				"entity.name.namespace",
+				"entity.name.type.module"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#ABD0E4"
+			}
+		},
+		{
 			"name": "Type name",
 			"scope": [
-				"entity.name.type",
+				"entity.name.type"
+			],
+			"settings": {
+				"fontStyle": "",
+				"foreground": "#3EC6C4"
+			}
+		},
+		{
+			"name": "Built-in type name",
+			"scope": [
 				"support.type"
 			],
 			"settings": {
+				"fontStyle": "",
+				"foreground": "#7BF5F3"
+			}
+		},
+		{
+			"name": "Type parameter",
+			"scope": [
+				"entity.name.type.parameter"
+			],
+			"settings": {
+				"fontStyle": "italic",
 				"foreground": "#3EC6C4"
 			}
 		},
@@ -290,6 +322,16 @@
 				"meta.structure.dictionary.json string.quoted.double.json"
 			],
 			"settings": {
+				"foreground": "#C7CBCE"
+			}
+		},
+		{
+			"name": "Methods",
+			"scope": [
+				"entity.name.function.member"
+			],
+			"settings": {
+				"fontStyle": "",
 				"foreground": "#C7CBCE"
 			}
 		},

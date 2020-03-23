@@ -2,7 +2,7 @@ import { Color } from "../color/color";
 import { Palette } from "../color/palette";
 
 export default function generateColorTheme(themeName: string, palette: Palette) {
-	const { shades, red, yellow, orange, green, blue, cyan, coAccent, accent } = palette;
+	const { shades, red, yellow, orange, green, blue, cyan, coAccent, accent, coShades } = palette;
 
 	const bg = shades[0];
 	const fg = shades[8];
@@ -15,7 +15,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 	};
 	const property = {
 		fontStyle: "",
-		foreground: shades[7].hex()
+		foreground: coShades[7].hex()
 	};
 	const parameter = {
 		fontStyle: "italic",
@@ -34,7 +34,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		foreground: accent[10].hex()
 	};
 	const weakOperator = {
-		foreground: shades[10].hex()
+		foreground: coShades[6].hex()
 	};
 	const literal = {
 		foreground: accent[9].hex()
@@ -52,7 +52,24 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 	const declare = {
 		foreground: shades[9].hex()
 	};
+	const method = {
+		fontStyle: "",
+		foreground: shades[9].hex()
+	};
 	const typeName = {
+		fontStyle: "",
+		foreground: coAccent[8].hex()
+	};
+	const namespace = {
+		fontStyle: "",
+		foreground: coShades[9].hex()
+	};
+	const builtInType = {
+		fontStyle: "",
+		foreground: coAccent[10].hex()
+	};
+	const typeParameter = {
+		fontStyle: "italic",
 		foreground: coAccent[8].hex()
 	};
 	const punctuation = {
@@ -270,7 +287,8 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 				"punctuation.definition.template-expression.end.ts",
 				"punctuation.definition.template-expression.end.js",
 				"punctuation.section.embedded.begin.metatag.php",
-				"punctuation.section.embedded.end.metatag.php"
+				"punctuation.section.embedded.end.metatag.php",
+				"punctuation.definition.typeparameters"
 			],
 			settings: weakOperator
 		},
@@ -303,9 +321,24 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			settings: literal
 		},
 		{
+			name: "Namespace",
+			scope: ["entity.name.namespace", "entity.name.type.module"],
+			settings: namespace
+		},
+		{
 			name: "Type name",
-			scope: ["entity.name.type", "support.type"],
+			scope: ["entity.name.type"],
 			settings: typeName
+		},
+		{
+			name: "Built-in type name",
+			scope: ["support.type"],
+			settings: builtInType
+		},
+		{
+			name: "Type parameter",
+			scope: ["entity.name.type.parameter"],
+			settings: typeParameter
 		},
 		{
 			name: "User names",
@@ -324,6 +357,11 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 				"meta.structure.dictionary.json string.quoted.double.json"
 			],
 			settings: declare
+		},
+		{
+			name: "Methods",
+			scope: ["entity.name.function.member"],
+			settings: method
 		},
 		{
 			name: "Keyword",
