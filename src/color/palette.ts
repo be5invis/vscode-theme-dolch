@@ -3,7 +3,8 @@ import { getColorGrades, Grade } from "./grade";
 
 export interface PaletteProps {
 	// Shades
-	shades: Grade;
+	fg: Grade;
+	bg: Grade;
 	coShades?: Grade;
 
 	// Accent
@@ -31,7 +32,8 @@ export interface PaletteProps {
 const GRADES = 10;
 
 type PaletteKeys =
-	| "shades"
+	| "fg"
+	| "bg"
 	| "coShades"
 	| "accent"
 	| "coAccent"
@@ -48,7 +50,8 @@ type PaletteKeys =
 	| "magenta"
 	| "rose";
 const PaletteKeys: PaletteKeys[] = [
-	"shades",
+	"fg",
+	"bg",
 	"coShades",
 	"accent",
 	"coAccent",
@@ -67,7 +70,8 @@ const PaletteKeys: PaletteKeys[] = [
 ];
 
 export class Palette {
-	public shades: Color[];
+	public fg: Color[];
+	public bg: Color[];
 	public accent: Color[];
 	public coShades: Color[];
 	public coAccent: Color[];
@@ -87,12 +91,13 @@ export class Palette {
 	private isDark: boolean;
 
 	constructor(props: PaletteProps) {
-		this.shades = getColorGrades(GRADES, props.shades);
-		this.coShades = getColorGrades(GRADES, { ...props.shades, ...props.coShades });
-		this.accent = getColorGrades(GRADES, { ...props.shades, ...props.accent });
-		this.coAccent = getColorGrades(GRADES, { ...props.shades, ...props.coAccent });
+		this.fg = getColorGrades(GRADES, props.fg);
+		this.bg = getColorGrades(GRADES, props.bg);
+		this.coShades = getColorGrades(GRADES, { ...props.fg, ...props.coShades });
+		this.accent = getColorGrades(GRADES, { ...props.fg, ...props.accent });
+		this.coAccent = getColorGrades(GRADES, { ...props.fg, ...props.coAccent });
 
-		const ringCommon = { ...props.shades, ...props.accent, ...props.ring };
+		const ringCommon = { ...props.fg, ...props.accent, ...props.ring };
 		this.red = getColorGrades(GRADES, { ...ringCommon, ...props.red });
 		this.orange = getColorGrades(GRADES, { ...ringCommon, ...props.orange });
 		this.yellow = getColorGrades(GRADES, { ...ringCommon, ...props.yellow });
@@ -106,7 +111,7 @@ export class Palette {
 		this.magenta = getColorGrades(GRADES, { ...ringCommon, ...props.magenta });
 		this.rose = getColorGrades(GRADES, { ...ringCommon, ...props.rose });
 
-		this.isDark = this.shades[0].L < this.shades[GRADES].L;
+		this.isDark = this.fg[0].L < this.fg[GRADES].L;
 	}
 
 	public print() {

@@ -2,16 +2,16 @@ import { Color } from "../color/color";
 import { Palette } from "../color/palette";
 
 export default function generateColorTheme(themeName: string, palette: Palette) {
-	const { shades, red, yellow, orange, green, blue, cyan, coAccent, accent, coShades } = palette;
+	const { fg, bg, red, yellow, orange, green, blue, cyan, coAccent, accent, coShades } = palette;
 
-	const bg = shades[0];
-	const fg = shades[8];
-	const border = shades[3];
+	const primaryBg = bg[0];
+	const primaryFg = fg[8];
+	const border = fg[3];
 
 	// token settings
 	const identifier = {
 		fontStyle: "",
-		foreground: fg.hex()
+		foreground: primaryFg.hex()
 	};
 	const property = {
 		fontStyle: "",
@@ -19,15 +19,15 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 	};
 	const parameter = {
 		fontStyle: "italic",
-		foreground: fg.hex()
+		foreground: primaryFg.hex()
 	};
 	const keyword = {
 		fontStyle: "bold",
-		foreground: shades[10].hex()
+		foreground: fg[10].hex()
 	};
 	const storage = {
 		fontStyle: "bold",
-		foreground: shades[10].hex()
+		foreground: fg[10].hex()
 	};
 	const operator = {
 		fontStyle: "",
@@ -40,21 +40,21 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		foreground: accent[9].hex()
 	};
 	const comment = {
-		foreground: shades[5].hex()
+		foreground: fg[5].hex()
 	};
 	const library = {
-		foreground: shades[9].hex()
+		foreground: fg[9].hex()
 	};
 	const quote = {
 		fontStyle: "italic",
 		foreground: accent[7].hex()
 	};
 	const declare = {
-		foreground: shades[9].hex()
+		foreground: fg[9].hex()
 	};
 	const method = {
 		fontStyle: "",
-		foreground: shades[9].hex()
+		foreground: fg[9].hex()
 	};
 	const typeName = {
 		fontStyle: "",
@@ -73,39 +73,43 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		foreground: coAccent[8].hex()
 	};
 	const punctuation = {
-		foreground: shades[5].hex()
+		foreground: fg[5].hex()
 	};
 	const invalid = {
 		foreground: red[7].hex()
 	};
 	const access = {};
 
+	const selectionAlpha = 5 / 16;
+	const highlightAlpha = 4 / 16;
+	const highlightBorderAlpha = 12 / 16;
+
 	const uiColors = {
 		focusBorder: accent[5].hex(),
-		foreground: fg.hex(),
+		foreground: primaryFg.hex(),
 		errorForeground: red[6].hex(),
-		"editor.background": bg.hex(),
-		"editor.foreground": fg.hex(),
-		"editor.lineHighlightBackground": shades[1].hex(),
+		"editor.background": primaryBg.hex(),
+		"editor.foreground": primaryFg.hex(),
+		"editor.lineHighlightBackground": bg[1].hex(),
 		"editorCursor.foreground": accent[10].hex(),
-		"editorLineNumber.foreground": shades[5].hex(),
-		"editorCodeLens.foreground": shades[5].hex(),
-		"editorActiveLineNumber.foreground": shades[10].hex(),
+		"editorLineNumber.foreground": fg[5].hex(),
+		"editorCodeLens.foreground": fg[5].hex(),
+		"editorActiveLineNumber.foreground": fg[10].hex(),
 
-		"editor.selectionBackground": accent[7].alpha(6 / 16).hexaa(),
-		"editor.inactiveSelectionBackground": shades[7].alpha(6 / 16).hexaa(),
-		"editor.selectionHighlightBackground": accent[4].alpha(5 / 16).hexaa(),
-		"editor.wordHighlightBackground": shades[5].alpha(5 / 16).hexaa(),
-		"editor.wordHighlightStrongBackground": accent[5].alpha(5 / 16).hexaa(),
-		"editor.findMatchBackground": orange[9].alpha(6 / 16).hexaa(),
-		"editor.findMatchHighlightBackground": orange[7].alpha(5 / 16).hexaa(),
-		"editor.findRangeHighlightBackground": shades[4].alpha(5 / 16).hexaa(),
+		"editor.selectionBackground": accent[7].alpha(selectionAlpha).hexaa(),
+		"editor.inactiveSelectionBackground": bg[7].alpha(selectionAlpha).hexaa(),
+		"editor.selectionHighlightBackground": accent[4].alpha(highlightAlpha).hexaa(),
+		"editor.wordHighlightBackground": bg[5].alpha(highlightAlpha).hexaa(),
+		"editor.wordHighlightStrongBackground": accent[5].alpha(highlightAlpha).hexaa(),
+		"editor.findMatchBackground": orange[9].alpha(selectionAlpha).hexaa(),
+		"editor.findMatchHighlightBackground": orange[7].alpha(highlightAlpha).hexaa(),
+		"editor.findRangeHighlightBackground": bg[4].alpha(highlightAlpha).hexaa(),
 		"editorLink.activeForeground": accent[10].hex(),
-		"editorBracketMatch.background": shades[4].alpha(5 / 16).hexaa(),
-		"editorBracketMatch.border": shades[4].alpha(12 / 16).hexaa(),
+		"editorBracketMatch.background": bg[4].alpha(highlightAlpha).hexaa(),
+		"editorBracketMatch.border": fg[4].alpha(highlightBorderAlpha).hexaa(),
 
-		"minimap.findMatchHighlight": orange[7].alpha(5 / 16).hexaa(),
-		"minimap.selectionHighlight": accent[7].alpha(6 / 16).hexaa(),
+		"minimap.findMatchHighlight": orange[7].alpha(highlightAlpha).hexaa(),
+		"minimap.selectionHighlight": accent[7].alpha(selectionAlpha).hexaa(),
 
 		"editorError.foreground": red[8].hex(),
 		"editorWarning.foreground": yellow[8].hex(),
@@ -119,30 +123,30 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"notification.warningBackground": yellow[4].hex(),
 		"notification.warningForeground": yellow[8].hex(),
 
-		"debugToolBar.background": shades[2].hexaa(),
-		"editorWidget.background": shades[2].hexaa(),
-		"editorSuggestWidget.background": bg.hexaa(),
+		"debugToolBar.background": bg[2].hexaa(),
+		"editorWidget.background": bg[1].hexaa(),
+		"editorSuggestWidget.background": primaryBg.hexaa(),
 
-		"editorGroup.border": shades[1].hex(),
-		"editorGroupHeader.noTabsBackground": bg.hex(),
-		"editorGroupHeader.tabsBackground": bg.hex(),
-		"tab.border": bg.hex(),
-		"tab.inactiveBackground": bg.hex(),
-		"tab.inactiveForeground": shades[7].hex(),
-		"tab.activeBackground": bg.hex(),
-		"tab.activeForeground": shades[10].hex(),
-		"tab.hoverBackground": shades[1].hex(),
+		"editorGroup.border": fg[1].hex(),
+		"editorGroupHeader.noTabsBackground": primaryBg.hex(),
+		"editorGroupHeader.tabsBackground": primaryBg.hex(),
+		"tab.border": primaryBg.hex(),
+		"tab.inactiveBackground": primaryBg.hex(),
+		"tab.inactiveForeground": fg[7].hex(),
+		"tab.activeBackground": primaryBg.hex(),
+		"tab.activeForeground": fg[10].hex(),
+		"tab.hoverBackground": bg[1].hex(),
 		"tab.hoverBorder": accent[5].hex(),
 		"tab.activeBorder": accent[8].hex(),
 
-		"peekView.border": shades[2].hex(),
-		"peekViewTitle.background": shades[1].hexaa(),
-		"peekViewEditor.background": shades[3].alpha(1 / 6).hexaa(),
+		"peekView.border": fg[2].hex(),
+		"peekViewTitle.background": bg[1].hexaa(),
+		"peekViewEditor.background": bg[3].alpha(1 / 6).hexaa(),
 
 		"scrollbar.shadow": Color.rgb(0, 0, 0).alpha(0.1).hexaa(),
-		"scrollbarSlider.background": shades[10].alpha(0.075).hexaa(),
-		"scrollbarSlider.activeBackground": shades[10].alpha(0.15).hexaa(),
-		"scrollbarSlider.hoverBackground": shades[10].alpha(0.15).hexaa(),
+		"scrollbarSlider.background": bg[10].alpha(0.075).hexaa(),
+		"scrollbarSlider.activeBackground": bg[10].alpha(0.15).hexaa(),
+		"scrollbarSlider.hoverBackground": bg[10].alpha(0.15).hexaa(),
 
 		"editorOverviewRuler.border": "#00000000",
 		"editorGutter.modifiedBackground": cyan[4].hex(),
@@ -155,24 +159,24 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"editorOverviewRuler.warningForeground": yellow[5].alpha(0.9).hexaa(),
 		"editorOverviewRuler.errorForeground": red[5].alpha(0.9).hexaa(),
 		"editorOverviewRuler.findMatchForeground": orange[5].alpha(0.9).hexaa(),
-		"editorOverviewRuler.bracketMatchForeground": shades[10].alpha(0.3).hexaa(),
-		"editorOverviewRuler.wordHighlightForeground": shades[10].alpha(0.3).hexaa(),
-		"editorOverviewRuler.wordHighlightStrongForeground": shades[10].alpha(0.3).hexaa(),
+		"editorOverviewRuler.bracketMatchForeground": fg[10].alpha(0.3).hexaa(),
+		"editorOverviewRuler.wordHighlightForeground": fg[10].alpha(0.3).hexaa(),
+		"editorOverviewRuler.wordHighlightStrongForeground": fg[10].alpha(0.3).hexaa(),
 		"diffEditor.removedTextBackground": red[5].alpha(0.15).hexaa(),
 		"diffEditor.insertedTextBackground": green[5].alpha(0.1).hexaa(),
 
-		"sideBarTitle.foreground": shades[10].hex(),
-		"sideBar.background": shades[1].hex(),
-		"sideBarSectionHeader.background": shades[3].hex(),
+		"sideBarTitle.foreground": fg[10].hex(),
+		"sideBar.background": bg[1].hex(),
+		"sideBarSectionHeader.background": bg[3].hex(),
 
 		"list.highlightForeground": accent[6].hex(),
-		"list.hoverBackground": shades[3].hex(),
-		"list.inactiveSelectionBackground": shades[5].alpha(0.3).hexaa(),
+		"list.hoverBackground": bg[3].hex(),
+		"list.inactiveSelectionBackground": bg[5].alpha(0.3).hexaa(),
 		"list.activeSelectionBackground": accent[5].alpha(0.25).hexaa(),
 		"list.focusBackground": accent[5].alpha(0.25).hexaa(),
-		"list.inactiveSelectionForeground": shades[10].hex(),
-		"list.activeSelectionForeground": shades[10].hex(),
-		"list.focusForeground": shades[10].hex(),
+		"list.inactiveSelectionForeground": fg[10].hex(),
+		"list.activeSelectionForeground": fg[10].hex(),
+		"list.focusForeground": fg[10].hex(),
 		"list.errorForeground": red[8].hex(),
 		"list.warningForeground": yellow[8].hex(),
 
@@ -182,44 +186,44 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"gitDecoration.deletedResourceForeground": red[8].hex(),
 		"gitDecoration.conflictingResourceForeground": red[8].hex(),
 
-		"dropdown.background": shades[1].hex(),
+		"dropdown.background": bg[1].hex(),
 		"dropdown.border": border.hex(),
-		"dropdown.foreground": shades[8].hex(),
+		"dropdown.foreground": fg[8].hex(),
 
-		"input.background": shades[0].hex(),
+		"input.background": bg[0].hex(),
 		"input.border": border.hex(),
-		"input.foreground": shades[8].hex(),
-		"input.placeholderForeground": shades[5].hex(),
+		"input.foreground": fg[8].hex(),
+		"input.placeholderForeground": fg[5].hex(),
 
 		"button.background": accent[palette.absGrade(6)].hex(),
-		"button.foreground": shades[palette.absGrade(10)].hex(),
+		"button.foreground": fg[palette.absGrade(10)].hex(),
 		"button.hoverBackground": accent[palette.absGrade(7)].hex(),
 		"badge.background": accent[palette.absGrade(4)].hex(),
-		"badge.foreground": shades[palette.absGrade(10)].hex(),
+		"badge.foreground": fg[palette.absGrade(10)].hex(),
 		"activityBarBadge.background": accent[palette.absGrade(4)].hex(),
-		"activityBarBadge.foreground": shades[palette.absGrade(10)].hex(),
-		"activityBar.background": shades[3].hex(),
-		"activityBar.foreground": shades[9].hex(),
+		"activityBarBadge.foreground": fg[palette.absGrade(10)].hex(),
+		"activityBar.background": bg[3].hex(),
+		"activityBar.foreground": fg[9].hex(),
 
-		"statusBar.background": shades[2].hex(),
-		"statusBar.foreground": fg.hex(),
-		"statusBar.noFolderBackground": shades[2].hex(),
-		"statusBar.noFolderForeground": fg.hex(),
-		"statusBar.debuggingBackground": shades[2].hex(),
-		"statusBar.debuggingForeground": fg.hex(),
+		"statusBar.background": bg[2].hex(),
+		"statusBar.foreground": primaryFg.hex(),
+		"statusBar.noFolderBackground": bg[2].hex(),
+		"statusBar.noFolderForeground": primaryFg.hex(),
+		"statusBar.debuggingBackground": bg[2].hex(),
+		"statusBar.debuggingForeground": primaryFg.hex(),
 
 		"panel.border": border.hex(),
 		"panelTitle.activeBorder": accent[5].hex(),
 
-		"titleBar.activeBackground": shades[palette.absGrade(2)].hex(),
-		"titleBar.activeForeground": shades[palette.absGrade(9)].hex(),
-		"titleBar.inactiveBackground": shades[palette.absGrade(3)].hex(),
-		"titleBar.inactiveForeground": shades[palette.absGrade(8)].hex(),
+		"titleBar.activeBackground": bg[palette.absGrade(2)].hex(),
+		"titleBar.activeForeground": fg[palette.absGrade(9)].hex(),
+		"titleBar.inactiveBackground": bg[palette.absGrade(3)].hex(),
+		"titleBar.inactiveForeground": fg[palette.absGrade(8)].hex(),
 
 		"breadcrumb.foreground": comment.foreground,
 		"breadcrumb.focusForeground": quote.foreground,
 		"breadcrumb.activeSelectionForeground": quote.foreground,
-		"breadcrumbPicker.background": shades[1].hex()
+		"breadcrumbPicker.background": bg[1].hex()
 	};
 
 	const tokenColors = [
