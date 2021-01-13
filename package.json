@@ -1,38 +1,31 @@
 {
 	"name": "theme-dolch",
-	"version": "0.3.3",
-	"engineStrict": true,
-	"engines": {
-		"vscode": "^1.33.0"
-	},
-	"devDependencies": {
-		"@types/node": "~8.5.10",
-		"rimraf": "~2.6.2",
-		"tslint": "^5.10.0",
-		"typescript": "^3.0.0",
-		"prettier": "^2.0.1"
-	},
-	"scripts": {
-		"clean": "rimraf coverage lib tmp",
-		"build": "tsc -p tsconfig.json && node lib/index",
-		"watch": "tsc -w -p tsconfig.json"
-	},
-	"author": "Renzhi Li aka Belleve Invis<belleve@typeof.net>",
+	"displayName": "Dolch Theme",
+	"version": "0.3.4",
+	"description": "Dolch themes for VS Code.",
+	"categories": [
+		"Themes"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/be5invis/vscode-theme-dolch"
 	},
 	"license": "MIT",
-	"dependencies": {
-		"tslib": "~1.9.0"
-	},
+	"author": "Renzhi Li aka Belleve Invis<belleve@typeof.net>",
 	"publisher": "be5invis",
-	"displayName": "Dolch Theme",
-	"description": "Dolch themes for VS Code.",
-	"categories": [
-		"Themes"
-	],
+	"scripts": {
+		"build": "tsc -p tsconfig.json && node lib/index",
+		"clean": "rimraf coverage lib tmp",
+		"watch": "tsc -w -p tsconfig.json"
+	},
 	"contributes": {
+		"iconThemes": [
+			{
+				"id": "dolch",
+				"label": "Dolch",
+				"path": "./icons/theme.json"
+			}
+		],
 		"themes": [
 			{
 				"label": "Dolch",
@@ -44,13 +37,20 @@
 				"uiTheme": "vs",
 				"path": "./themes/dolch-light.json"
 			}
-		],
-		"iconThemes": [
-			{
-				"id": "dolch",
-				"label": "Dolch",
-				"path": "./icons/theme.json"
-			}
 		]
-	}
+	},
+	"dependencies": {
+		"tslib": "~1.9.0"
+	},
+	"devDependencies": {
+		"@types/node": "~8.5.10",
+		"prettier": "^2.0.1",
+		"rimraf": "~2.6.2",
+		"tslint": "^5.10.0",
+		"typescript": "^3.0.0"
+	},
+	"engines": {
+		"vscode": "^1.33.0"
+	},
+	"engineStrict": true
 }
