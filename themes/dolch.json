@@ -135,14 +135,15 @@
 				"variable.other.readonly"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#B0B4B7"
 			}
 		},
 		{
 			"name": "Parameter",
 			"scope": [
-				"variable.parameter"
+				"variable.parameter",
+				"variable.other.local",
+				"variable.other.constant"
 			],
 			"settings": {
 				"fontStyle": "italic",
@@ -152,10 +153,10 @@
 		{
 			"name": "Member Access",
 			"scope": [
-				"variable.other.property"
+				"variable.other.property",
+				"variable.other.constant.property"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#7EA3B5"
 			}
 		},
@@ -166,7 +167,6 @@
 				"meta.object-literal.key entity.name.function"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#B0B4B7"
 			}
 		},
@@ -187,7 +187,6 @@
 				"keyword.operator"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#7BF2FF"
 			}
 		},
@@ -271,7 +270,6 @@
 				"entity.name.type.module"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#ABD0E4"
 			}
 		},
@@ -281,7 +279,6 @@
 				"entity.name.type"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#3EC6C4"
 			}
 		},
@@ -291,7 +288,6 @@
 				"support.type"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#5EDEDB"
 			}
 		},
@@ -331,8 +327,16 @@
 				"entity.name.function.member"
 			],
 			"settings": {
-				"fontStyle": "",
 				"foreground": "#C7CBCE"
+			}
+		},
+		{
+			"name": "Weak Keyword",
+			"scope": [
+				"variable.language.this"
+			],
+			"settings": {
+				"foreground": "#DFE3E6"
 			}
 		},
 		{
@@ -397,8 +401,7 @@
 			"scope": [
 				"support.class",
 				"support.function",
-				"support.constant",
-				"variable.language.this"
+				"support.constant"
 			],
 			"settings": {
 				"foreground": "#C7CBCE"

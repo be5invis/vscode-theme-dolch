@@ -10,11 +10,9 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 
 	// token settings
 	const identifier = {
-		fontStyle: "",
 		foreground: primaryFg.hex()
 	};
 	const property = {
-		fontStyle: "",
 		foreground: coShades[7].hex()
 	};
 	const parameter = {
@@ -25,12 +23,14 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		fontStyle: "bold",
 		foreground: fg[10].hex()
 	};
+	const weakKeyword = {
+		foreground: fg[10].hex()
+	};
 	const storage = {
 		fontStyle: "bold",
 		foreground: fg[10].hex()
 	};
 	const operator = {
-		fontStyle: "",
 		foreground: accent[10].hex()
 	};
 	const weakOperator = {
@@ -53,19 +53,15 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		foreground: fg[9].hex()
 	};
 	const method = {
-		fontStyle: "",
 		foreground: fg[9].hex()
 	};
 	const typeName = {
-		fontStyle: "",
 		foreground: coAccent[8].hex()
 	};
 	const namespace = {
-		fontStyle: "",
 		foreground: coShades[9].hex()
 	};
 	const builtInType = {
-		fontStyle: "",
 		foreground: coAccent[9].hex()
 	};
 	const typeParameter = {
@@ -241,12 +237,12 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		},
 		{
 			name: "Parameter",
-			scope: ["variable.parameter"],
+			scope: ["variable.parameter", "variable.other.local", "variable.other.constant"],
 			settings: parameter
 		},
 		{
 			name: "Member Access",
-			scope: ["variable.other.property"],
+			scope: ["variable.other.property", "variable.other.constant.property"],
 			settings: property
 		},
 		{
@@ -368,6 +364,11 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			settings: method
 		},
 		{
+			name: "Weak Keyword",
+			scope: ["variable.language.this"],
+			settings: weakKeyword
+		},
+		{
 			name: "Keyword",
 			scope: [
 				"keyword",
@@ -414,12 +415,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 
 		{
 			name: "Library",
-			scope: [
-				"support.class",
-				"support.function",
-				"support.constant",
-				"variable.language.this"
-			],
+			scope: ["support.class", "support.function", "support.constant"],
 			settings: library
 		},
 		{
