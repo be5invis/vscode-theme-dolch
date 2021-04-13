@@ -1,7 +1,7 @@
 {
 	"name": "theme-dolch",
 	"displayName": "Dolch Theme",
-	"version": "0.3.6",
+	"version": "0.3.7",
 	"description": "Dolch themes for VS Code.",
 	"categories": [
 		"Themes"
