@@ -161,6 +161,13 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"diffEditor.removedTextBackground": red[5].alpha(0.15).hexaa(),
 		"diffEditor.insertedTextBackground": green[5].alpha(0.1).hexaa(),
 
+		"editorBracketHighlight.foreground1": palette.azure[6].hex(),
+		"editorBracketHighlight.foreground2": palette.spring[6].hex(),
+		"editorBracketHighlight.foreground3": palette.chartreuse[6].hex(),
+		"editorBracketHighlight.foreground4": palette.orange[6].hex(),
+		"editorBracketHighlight.foreground5": palette.rose[6].hex(),
+		"editorBracketHighlight.foreground6": palette.violet[6].hex(),
+
 		"sideBarTitle.foreground": fg[10].hex(),
 		"sideBar.background": bg[1].hex(),
 		"sideBarSectionHeader.background": bg[3].hex(),
@@ -312,6 +319,8 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 			name: "Primitive Literals",
 			scope: [
 				"constant.numeric",
+				"constant.dec.numeric",
+				"constant.hex.numeric",
 				"meta.property-value.numeric",
 				"support.constant.property-value.numeric",
 				"meta.property-value.color",
@@ -353,6 +362,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 				"entity.other.attribute-name",
 				"entity.other.attribute-name.html",
 				"support.type.property-name",
+				"string.key",
 				"entity.name.tag.table",
 				"meta.structure.dictionary.json string.quoted.double.json"
 			],
