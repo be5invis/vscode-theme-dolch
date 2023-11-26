@@ -1,7 +1,15 @@
 import { Color } from "../color/color";
-import { Palette } from "../color/palette";
+import { Palette, PaletteKey } from "../color/palette";
 
-export default function generateColorTheme(themeName: string, palette: Palette) {
+export type ThemeOptions = {
+	bracketGrades: PaletteKey[];
+};
+
+export default function generateColorTheme(
+	themeName: string,
+	palette: Palette,
+	options: ThemeOptions
+) {
 	const { fg, bg, red, yellow, orange, green, blue, cyan, coAccent, accent, coShades } = palette;
 
 	const primaryBg = bg[0];
@@ -161,12 +169,15 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"diffEditor.removedTextBackground": red[5].alpha(0.15).hexaa(),
 		"diffEditor.insertedTextBackground": green[5].alpha(0.1).hexaa(),
 
-		"editorBracketHighlight.foreground1": palette.azure[6].hex(),
-		"editorBracketHighlight.foreground2": palette.spring[6].hex(),
-		"editorBracketHighlight.foreground3": palette.chartreuse[6].hex(),
-		"editorBracketHighlight.foreground4": palette.orange[6].hex(),
-		"editorBracketHighlight.foreground5": palette.rose[6].hex(),
-		"editorBracketHighlight.foreground6": palette.violet[6].hex(),
+		"editorBracketHighlight.foreground1": palette[options.bracketGrades[0]][6].hex(),
+		"editorBracketHighlight.foreground2": palette[options.bracketGrades[1]][6].hex(),
+		"editorBracketHighlight.foreground3": palette[options.bracketGrades[2]][6].hex(),
+		"editorBracketHighlight.foreground4": palette[options.bracketGrades[3]][6].hex(),
+		"editorBracketHighlight.foreground5": palette[options.bracketGrades[4]][6].hex(),
+		"editorBracketHighlight.foreground6": palette[options.bracketGrades[5]][6].hex(),
+
+		"textLink.foreground": palette.accent[7].hex(),
+		"textLink.activeForeground": palette.accent[8].hex(),
 
 		"sideBarTitle.foreground": fg[10].hex(),
 		"sideBar.background": bg[1].hex(),
@@ -197,6 +208,7 @@ export default function generateColorTheme(themeName: string, palette: Palette) 
 		"input.border": border.hex(),
 		"input.foreground": fg[8].hex(),
 		"input.placeholderForeground": fg[5].hex(),
+		"inputOption.activeBorder": palette.accent[6].hex(),
 
 		"button.background": accent[palette.absGrade(6)].hex(),
 		"button.foreground": fg[palette.absGrade(10)].hex(),

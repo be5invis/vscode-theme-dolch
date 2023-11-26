@@ -31,25 +31,27 @@ export interface PaletteProps {
 
 const GRADES = 10;
 
-type PaletteKeys =
-	| "fg"
-	| "bg"
-	| "coShades"
-	| "accent"
-	| "coAccent"
-	| "red"
-	| "orange"
-	| "yellow"
-	| "chartreuse"
-	| "green"
-	| "spring"
-	| "cyan"
-	| "azure"
-	| "blue"
-	| "violet"
-	| "magenta"
-	| "rose";
-const PaletteKeys: PaletteKeys[] = [
+export type PaletteKey = keyof Palette &
+	(
+		| "fg"
+		| "bg"
+		| "coShades"
+		| "accent"
+		| "coAccent"
+		| "red"
+		| "orange"
+		| "yellow"
+		| "chartreuse"
+		| "green"
+		| "spring"
+		| "cyan"
+		| "azure"
+		| "blue"
+		| "violet"
+		| "magenta"
+		| "rose"
+	);
+const PaletteKeys: PaletteKey[] = [
 	"fg",
 	"bg",
 	"coShades",
@@ -129,6 +131,7 @@ export class Palette {
 }
 
 export function StandardRing(angle: number) {
+	angle = (angle % 30) + 30;
 	return {
 		red: { hue: angle + 0 },
 		orange: { hue: angle + 30 },
