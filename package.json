@@ -1,55 +1,65 @@
 {
-  "name": "theme-dolch",
-  "displayName": "Dolch Theme",
-  "version": "0.3.10",
-  "description": "Dolch themes for VS Code.",
-  "categories": [
-    "Themes"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/be5invis/vscode-theme-dolch"
-  },
-  "license": "MIT",
-  "author": "Renzhi Li aka Belleve Invis<belleve@typeof.net>",
-  "publisher": "be5invis",
-  "scripts": {
-    "build": "tsc -p tsconfig.json && node lib/index",
-    "clean": "rimraf coverage lib tmp",
-    "watch": "tsc -w -p tsconfig.json"
-  },
-  "contributes": {
-    "iconThemes": [
-      {
-        "id": "dolch",
-        "label": "Dolch",
-        "path": "./icons/theme.json"
-      }
-    ],
-    "themes": [
-      {
-        "label": "Dolch",
-        "uiTheme": "vs-dark",
-        "path": "./themes/dolch.json"
-      },
-      {
-        "label": "Dolch Light",
-        "uiTheme": "vs",
-        "path": "./themes/dolch-light.json"
-      }
-    ]
-  },
-  "dependencies": {
-    "tslib": "^2.6.2"
-  },
-  "devDependencies": {
-    "@types/node": "^20.5.4",
-    "prettier": "^3.0.2",
-    "rimraf": "^5.0.1",
-    "tslint": "^6.1.3",
-    "typescript": "^5.1.6"
-  },
-  "engines": {
-    "vscode": "^1.33.0"
-  }
+	"name": "theme-dolch",
+	"displayName": "Dolch Theme",
+	"version": "0.4.0",
+	"description": "Dolch themes for VS Code.",
+	"categories": [
+		"Themes"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/be5invis/vscode-theme-dolch"
+	},
+	"license": "MIT",
+	"author": "Renzhi Li aka Belleve Invis<belleve@typeof.net>",
+	"publisher": "be5invis",
+	"scripts": {
+		"build": "tsc -p tsconfig.json && node lib/index",
+		"clean": "rimraf coverage lib tmp",
+		"watch": "tsc -w -p tsconfig.json"
+	},
+	"contributes": {
+		"iconThemes": [
+			{
+				"id": "dolch",
+				"label": "Dolch",
+				"path": "./icons/theme.json"
+			}
+		],
+		"themes": [
+			{
+				"label": "Dolch",
+				"uiTheme": "vs-dark",
+				"path": "./themes/dolch.json"
+			},
+			{
+				"label": "Dolch Light",
+				"uiTheme": "vs",
+				"path": "./themes/dolch-light.json"
+			},
+			{
+				"label": "Dolch Alter",
+				"uiTheme": "vs-dark",
+				"path": "./themes/dolch-alter.json"
+			},
+			{
+				"label": "Dolch Light Alter",
+				"uiTheme": "vs",
+				"path": "./themes/dolch-light-alter.json"
+			}
+		]
+	},
+	"dependencies": {
+		"tslib": "^2.6.2"
+	},
+	"devDependencies": {
+		"@types/node": "^20.5.4",
+		"prettier": "^3.0.2",
+		"rimraf": "^5.0.1",
+		"tslint": "^6.1.3",
+		"typescript": "^5.1.6"
+	},
+	"engines": {
+		"vscode": "^1.33.0"
+	}
 }
